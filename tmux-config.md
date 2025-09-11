@@ -1,3 +1,10 @@
+## colour
+# Set status bar background to green
+set -g status-bg green
+# Set status bar foreground to black
+set -g status-fg black
+
+
 ## tmux key bindings
 ```
 #remap prefix from C-b to C-z
