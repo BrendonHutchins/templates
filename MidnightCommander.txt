@@ -1,0 +1,28 @@
+Keys
+------
+Ctrl + xi = info pane
+Ctrl +xq = view mode
+Ctrl + s = search
+Alt + c = CD directory switcher (Quick CD)
+
+
+Customization
+-----------------
+** Save all changes to config through menu **
+// Disable Hint Bar
+// Disbale Command Prompt
+// Enable case insensitive search 
+// Disable Internal Edit and Internal View
+// Edit program assoc with Extention - Command -> Edit extention file -> Include=(open %s)
+// Configure Hotlist
+
+Create Custom User Command \ Menu Item
+----------------------------------------
+
+1. Command -> Edit Menu File -> User
+2. Scroll till last option [7]. 
+3. Paste script stanza.
+4. F2 to access
+
+
+
