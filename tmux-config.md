@@ -1,6 +1,6 @@
 ### colour
 ```
-// Set status bar background to green
+// Set status bar background to lime
 set -g status-bg green
 // Set status bar foreground to black
 set -g status-fg black
