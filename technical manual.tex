@@ -1,0 +1,233 @@
+\documentclass[12pt,a4paper]{article}
+
+% -------------------------------
+% Packages
+% -------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}       % Clean professional font
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{tcolorbox}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage{longtable}
+\usepackage{array}
+
+% -------------------------------
+% Colors
+% -------------------------------
+\definecolor{headerblue}{RGB}{0,38,77}
+\definecolor{loggray}{RGB}{40,40,40}
+\definecolor{checkcolor}{RGB}{0,102,204}
+\definecolor{notegray}{RGB}{240,240,240}
+
+% -------------------------------
+% Section Formatting
+% -------------------------------
+\titleformat{\section}{\Large\bfseries\color{headerblue}}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries\color{headerblue}}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries\color{headerblue}}{\thesubsubsection}{1em}{}
+
+% -------------------------------
+% Header & Footer
+% -------------------------------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textbf{Technical Logbook}}
+\fancyhead[R]{Project: Your Project Name}
+\fancyfoot[C]{\thepage}
+\fancyfoot[R]{Revision: 1.0}
+
+% -------------------------------
+% Checklist Environments
+% -------------------------------
+\newlist{checklist}{itemize}{1}
+\setlist[checklist]{label=\(\square\), left=0pt, itemsep=0.5em}
+
+\newlist{numberedchecklist}{enumerate}{1}
+\setlist[numberedchecklist]{left=0pt, itemsep=0.5em}
+
+% -------------------------------
+% Explanation / Note Box
+% -------------------------------
+\newtcolorbox{explanation}{
+  colback=blue!5!white,
+  colframe=blue!75!black,
+  boxrule=0.5pt,
+  arc=2mm,
+  left=2mm,
+  right=2mm,
+  top=1mm,
+  bottom=1mm,
+}
+
+\newtcolorbox{marginnote}{
+  colback=notegray,
+  colframe=gray!50,
+  boxrule=0.3pt,
+  arc=1mm,
+  left=1mm,
+  right=1mm,
+  top=1mm,
+  bottom=1mm,
+  width=0.25\textwidth,
+  floatplacement=tbp
+}
+
+% -------------------------------
+% Final Cover Page Style
+% -------------------------------
+\newcommand{\makecover}{
+\begin{titlepage}
+\centering
+
+% -------------------------------
+% Black centered title
+% -------------------------------
+\vspace*{5cm}
+{\Huge \bfseries \color{black} Technical Logbook}\\[1.5cm]
+{\Large Project / System Name}\\[2cm]
+{\large Version: 1.0 \quad Date: \today}\\[1.5cm]
+{\large Prepared by: Your Organization / Team Name}
+
+% -------------------------------
+% Vertical blue accent bar along right side
+% -------------------------------
+\begin{tikzpicture}[remember picture, overlay]
+  % Vertical bar 1/2 inch inset from right edge
+  \fill[blue!80] 
+    ([xshift=-0.5in]current page.north east) rectangle ([xshift=-0.25in]current page.south east);
+\end{tikzpicture}
+
+% -------------------------------
+% Simulate binder holes along left margin
+% -------------------------------
+\begin{tikzpicture}[remember picture, overlay]
+  \foreach \y in {3cm, 6cm, 9cm, 12cm} {
+    \filldraw[draw=loggray, fill=white] (current page.west + (1cm, -\y)) circle (3pt);
+  }
+\end{tikzpicture}
+
+% -------------------------------
+% Bottom-centered blue box
+% -------------------------------
+\begin{tikzpicture}[remember picture, overlay]
+  \node[fill=blue!80, minimum width=8cm, minimum height=1cm, anchor=south] at (current page.south)
+    {\color{white}\large Property of };
+\end{tikzpicture}
+
+\vfill
+\end{titlepage}
+}
+
+
+% -------------------------------
+% Revision History Table
+% -------------------------------
+\newcommand{\revisionhistory}{
+\section*{Revision History}
+\begin{longtable}{|p{2cm}|p{3cm}|p{3cm}|p{6cm}|}
+\hline
+\textbf{Rev} & \textbf{Date} & \textbf{Author} & \textbf{Description} \\ \hline
+1.0 & \today & Your Name & Initial creation of logbook \\ \hline
+\end{longtable}
+}
+
+% -------------------------------
+% Document Starts
+% -------------------------------
+\title{Technical Instruction Manual}
+\author{Your Team / Organization}
+\date{\today}
+
+\begin{document}
+
+% -------------------------------
+% Cover
+% -------------------------------
+\makecover
+
+% -------------------------------
+% Table of Contents
+% -------------------------------
+\pagenumbering{roman}
+\tableofcontents
+\newpage
+\pagenumbering{arabic}
+
+% -------------------------------
+% Revision History
+% -------------------------------
+\revisionhistory
+\newpage
+
+% -------------------------------
+% Sections
+% -------------------------------
+\section{Introduction}
+This logbook documents the technical procedures, checks, and operational instructions.
+
+\begin{explanation}
+This manual is designed as a field-style technical logbook, mimicking NASA-style operational manuals with checklists and margin notes.
+\end{explanation}
+
+\begin{marginnote}
+Tip: Always record data immediately after performing each checklist step.
+\end{marginnote}
+
+\section{System Overview}
+\subsection{Component A}
+Description of Component A.
+
+\begin{explanation}
+Component A is critical for operation. Confirm all parameters before activation.
+\end{explanation}
+
+\subsection{Component B}
+Description of Component B.
+
+\section{Procedures}
+
+\subsection{Startup Procedure}
+Follow these steps to start the system:
+
+\begin{numberedchecklist}
+  \item Verify all power connections are secure.
+  \item Confirm emergency shutdown systems are operational.
+  \item Turn on the main power switch.
+  \item Monitor system diagnostics for errors.
+\end{numberedchecklist}
+
+\subsection{Shutdown Procedure}
+Follow these steps to safely shut down the system:
+
+\begin{checklist}
+  \item Stop all active processes.
+  \item Turn off the main power switch.
+  \item Secure sensitive components.
+  \item Record shutdown data in logbook.
+\end{checklist}
+
+\section{Maintenance}
+\subsection{Routine Inspection}
+\begin{checklist}
+  \item Inspect wiring and connectors.
+  \item Check fluid levels.
+  \item Calibrate sensors if needed.
+\end{checklist}
+
+\subsection{Troubleshooting}
+\begin{explanation}
+If a fault arises, follow the diagnostic steps in the procedure flowchart. Record all observations. Contact support if the issue persists.
+\end{explanation}
+
+\section{Appendices}
+Include reference diagrams, tables, datasheets, and additional logs.
+
+\end{document}
