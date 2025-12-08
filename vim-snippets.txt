@@ -3,13 +3,22 @@
 ==================================================================================================
 LaTex Documents
 ==================================================================================================
+*** \usepackage{listings} % for code syntax highlight \usepackage{color} ***
 
-// plain text formatted as code. Using the 
+// plain text formatted as code with a box.
+\lstset{
+    language={},              % No syntax rules
+    basicstyle=\ttfamily\small,
+    frame=single,             % Box around the text
+    breaklines=true,
+    showstringspaces=false
+}
+
 \begin{lstlisting}
-"url=php://filter/convert.base64-encode/resource=/var/www/backup.forwardslash.htb/index.php"
+url=php://filter/convert.base64-encode/resource=/var/www/html/index.php
 \end{lstlisting}
-
-// code formatted as language style: eg PHP. Define style/colour params first. Then text listing.
+--------------------------------------------------------------------------------------------------
+// code formatted as language style and colour: eg PHP. Define style/colour params first. Then text listing.
 \lstset{
     language=PHP,
     basicstyle=\ttfamily\small, % Basic font for all code
