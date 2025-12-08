@@ -92,4 +92,17 @@ Row 5 Col 1 & Row 5 Col 2 \\ \hline
 \end{table}
 ------------------------------------------------------------------------------------------------
 
+Inserting Images
+* \usepackage{changepage} % set image to full width into the margins
+* \usepackage{graphicx}
+
+\begin{figure}[ht]
+\begin{adjustwidth}{-2cm}{-2cm}  % widen left and right margins
+    \centering
+    \includegraphics[width=\linewidth]{CORS-XSS.png}
+    \caption{CORS and XSS example}
+    \label{fig:cors-xss}
+\end{adjustwidth}
+\end{figure}
+------------------------------------------------------------------------------------------------
 
