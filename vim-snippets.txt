@@ -41,3 +41,55 @@ class Car {
     }
 }
 \end{lstlisting}
+
+------------------------------------------------------------------------------------------------
+
+// Basic text box with background colour.
+\colorbox{lightgray}{\parbox{\linewidth}{
+Best design pattern. Never accept user input for data Serialization directly. Always parase. user input -? Jason -> saniatize -> serialize
+}}
+
+// Fancy text box with background colour and padding. Needs \usepackage[most]{tcolorbox} % greay box around text
+\begin{tcolorbox}[colback=lightgray,colframe=gray!50]
+This is a nicer gray box with padding.
+\end{tcolorbox}
+
+------------------------------------------------------------------------------------------------
+
+// Fancy Note two color box.
+
+% -------------------------------
+% Explanation / Note Box Def
+% -------------------------------
+\newtcolorbox{explanation}{
+  colback=blue!5!white,
+  colframe=blue!75!black,
+  boxrule=0.5pt,
+  arc=2mm,
+  left=2mm,
+  right=2mm,
+  top=1mm,
+  bottom=1mm,
+}
+// Implementation
+\begin{explanation}
+Here is the general JavaScript stuff.
+\end{explanation}
+
+------------------------------------------------------------------------------------------------
+Table
+
+\centering
+\begin{tabular}{|c|c|}
+\hline
+row1-col1 & row1-col2 \\ \hline
+col1 & col2 \\ \hline
+Cisco  & XSS \\ \hline
+VMware vCenter & XSS in various vSphere/vCenter UIs \\ \hline
+Row 5 Col 1 & Row 5 Col 2 \\ \hline
+\end{tabular}
+\caption{A 5×2 table}
+\end{table}
+------------------------------------------------------------------------------------------------
+
+
