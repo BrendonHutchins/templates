@@ -1,0 +1,34 @@
+
+
+==================================================================================================
+LaTex Documents
+==================================================================================================
+
+// plain text formatted as code. Using the 
+\begin{lstlisting}
+"url=php://filter/convert.base64-encode/resource=/var/www/backup.forwardslash.htb/index.php"
+\end{lstlisting}
+
+// code formatted as language style: eg PHP. Define style/colour params first. Then text listing.
+\lstset{
+    language=PHP,
+    basicstyle=\ttfamily\small, % Basic font for all code
+    keywordstyle=\color{violet}\bfseries, % Keywords in purple and bold
+    stringstyle=\color{blue}, % Strings in green
+    commentstyle=\color{gray}\itshape, % Comments in gray and italic
+    showstringspaces=false, % Don't show spaces in strings as visible
+    numbers=left, % Line numbers on the left
+    numberstyle=\tiny\color{gray}, % Tiny gray line numbers
+    frame=single, % Box around the code
+    breaklines=true % Break long lines
+}
+// start code listing that style will be applied to.
+\begin{lstlisting}
+echo "hello world";
+<?php
+class Car {
+    function Car() {
+        $this->model = "Tesla";
+    }
+}
+\end{lstlisting}
