@@ -1,4 +1,4 @@
-<img width="977" height="1045" alt="image" src="https://github.com/user-attachments/assets/cf996a9e-bade-4a10-a50c-96cb7ebd574a" /># LaTex Document Commands
+# LaTex Document Commands
 
 ### Basic syntax of a page
 ```
@@ -167,6 +167,7 @@ l: left-justified
 r: right-justified
 
 p{width}: a left-justified multi-line column that is width wide.
+```
 ---------------------------------------------------------------------------------------------------------------
 % table with bold headings - width is set statically at 8cm. Headings centre aligned. table entries left aligned. 
 \newcommand*{\thead}[1]{\multicolumn{1}{c}{\bfseries #1}}
@@ -202,6 +203,7 @@ Row 5 Col 1 & Row 5 Col 2 \\ \hline
 \caption{Host Network Port Table}
 \end{table}
 ---------------------------------------------------------------------------------------------------------------
+```
 
 ### Bibliographies
 ```
