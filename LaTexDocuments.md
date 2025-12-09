@@ -1,4 +1,4 @@
-# LaTex Document Commands
+<img width="977" height="1045" alt="image" src="https://github.com/user-attachments/assets/cf996a9e-bade-4a10-a50c-96cb7ebd574a" /># LaTex Document Commands
 
 ### Basic syntax of a page
 ```
@@ -167,6 +167,41 @@ l: left-justified
 r: right-justified
 
 p{width}: a left-justified multi-line column that is width wide.
+---------------------------------------------------------------------------------------------------------------
+% table with bold headings - width is set statically at 8cm. Headings centre aligned. table entries left aligned. 
+\newcommand*{\thead}[1]{\multicolumn{1}{c}{\bfseries #1}}
+\newcommand{\lp}{>{\raggedright\arraybackslash}p{8cm}}
+\begin{table}[h]
+\centering
+\begin{tabular}{\lp \lp \lp}
+\hline
+\thead{Server IP Address} & \thead{Ports Open} \\ \hline
+192.168.1.21 & TCP: 21, 22, 80, 455, 44567, 2344, 111, 389\\ \hline
+& UDP: 161, 77 \\ \hline
+example & 3 \\ \hline
+Row 5 Col 1 & Row 5 Col 2 \\ \hline
+\end{tabular} 
+\caption{Host Network Port Table}
+\end{table}
+---------------------------------------------------------------------------------------------------------------
+% Let LaTeX auto-size columns
+% \usepackage{tabularx}
+% Use X columns from the tabularx package, which automatically stretches to the page width.
+\newcommand*{\thead}[1]{\multicolumn{1}{c}{\bfseries #1}}
+
+\begin{table}[h]
+\centering
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X}
+\hline
+\thead{Server IP Address} & \thead{Ports Open} \\ \hline
+192.168.1.21 & TCP: 21, 22, 80, 455, 44567, 2344, 111, 389 \\ \hline
+            & UDP: 161, 77 \\ \hline
+example     & 3 \\ \hline
+Row 5 Col 1 & Row 5 Col 2 \\ \hline
+\end{tabularx}
+\caption{Host Network Port Table}
+\end{table}
+---------------------------------------------------------------------------------------------------------------
 
 ### Bibliographies
 ```
