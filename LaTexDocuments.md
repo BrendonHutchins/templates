@@ -235,3 +235,26 @@ Item 1 \dotfill Shown\\
 Item 2 \dotfill Hidden
 \end{tcolorbox}
 ```
+#### Here is the code in a re-use snippet. Using \textttt for monospace font
+```
+%\usepackage{array}
+%\usepackage{framed}
+
+\newenvironment{statusbox}
+{%
+  \begin{framed}
+  \begin{tabular*}{\linewidth}{@{}l@{\dotfill}r@{}}
+}
+{%
+  \end{tabular*}
+  \end{framed}
+}
+```
+Usage
+```
+\begin{statusbox}
+Item 1 & \texttt{Shown} \\
+Item 2 & \texttt{Hidden} \\
+Item 3 & \texttt{Disabled} \\
+\end{statusbox}
+```
