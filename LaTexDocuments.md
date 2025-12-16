@@ -210,3 +210,28 @@ Row 5 Col 1 & Row 5 Col 2 \\ \hline
 \begin{thebibliography}{indent}
 \end{thebibliography}
 ```
+
+### Item Check list boxes (like Flight manuels / NASA)
+```
+%\usepackage{array}
+%\usepackage{framed}
+
+\begin{framed}
+\noindent
+Item 1 \dotfill Shown\\
+Item 2 \dotfill Hidden\\
+Item 3 \dotfill Disabled
+\end{framed}
+```
+```
+%\usepackage{tcolorbox}
+
+\begin{tcolorbox}[
+  colback=gray!10,
+  colframe=black,
+  boxrule=0.5pt
+]
+Item 1 \dotfill Shown\\
+Item 2 \dotfill Hidden
+\end{tcolorbox}
+```
