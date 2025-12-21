@@ -1,0 +1,119 @@
+{
+"workbench.colorTheme": "Windows NT",
+"editor.fontFamily": "Consolas, Courier New, monospace",
+"editor.fontSize": 15,
+"editor.lineHeight": 22,
+"editor.renderLineHighlight": "all",
+
+
+"workbench.colorCustomizations": {
+  "editor.background": "#001E7B",
+  "sideBar.background": "#0275e81c",
+  "activityBar.background": "#0066ff",
+  "statusBar.background": "#034de1",
+  "statusBar.foreground": "#ffffff",
+  "activityBar.foreground": "#FFFFFF",
+  "activityBar.inactiveForeground": "#D0D6E0",
+  "activityBar.background": "#3F5FBF",
+  "activityBar.border": "#2C3E80",
+  "editor.lineHighlightBackground": "#2F4FA8",
+  "editor.lineHighlightBorder": "#FFD700",
+  "editorLineNumber.foreground": "#7CFF00",
+  "editorLineNumber.activeForeground": "#C6FF00"
+
+},
+
+
+"editor.tokenColorCustomizations": {
+  "textMateRules": [
+
+    {
+      "scope": "comment",
+      "settings": {
+        "foreground": "#4E6A8A",
+        "fontStyle": "italic"
+      }
+    },
+
+    {
+      "scope": [
+        "keyword",
+        "storage.type",
+        "storage.modifier"
+      ],
+      "settings": {
+        "foreground": "#FFD700",
+        "fontStyle": "bold"
+      }
+    },
+
+    {
+      "scope": [
+        "entity.name.type",
+        "support.type",
+        "support.class",
+        "support.type.system"
+      ],
+      "settings": {
+        "foreground": "#4FD1C5"
+      }
+    },
+
+    {
+      "scope": "string",
+      "settings": {
+        "foreground": "#7BD88F"
+      }
+    },
+
+    {
+      "scope": "variable",
+      "settings": {
+        "foreground": "#E6EEFF"
+      }
+    },
+
+    {
+      "scope": [
+        "constant.numeric",
+        "constant.language"
+      ],
+      "settings": {
+        "foreground": "#FFB000"
+      }
+    },
+
+    {
+      "scope": "entity.name.function",
+      "settings": {
+        "foreground": "#64c5f3"
+      }
+    }
+  ]
+},
+
+
+  "vim.leader": " ",
+  "vim.normalModeKeyBindingsNonRecursive": [
+  {
+  "before": ["<leader>", "e"],
+  "commands": ["workbench.view.explorer"],
+  },
+  {
+  "before": ["<leader>", "n"],
+  "commands": ["editor.action.clearSelection"]
+  }
+],
+
+"editor.lineNumbers": "relative"
+
+
+  "vim.useSystemClipboard": true,
+  "vim.hlsearch": true,
+  "vim.incsearch": true,
+  "vim.ignorecase": true,
+  "vim.smartcase": true,
+
+
+
+}
