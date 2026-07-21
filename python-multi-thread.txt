@@ -1,0 +1,75 @@
+Python Multi-Threading 
+=======================
+# Appraoch 1: Spin off single work into thread
+##################################################################################################################################################
+#
+# Thread safe bool signal object.
+# Not just another boolean as it looks at first glance. It is of Type threading.Event()
+# This is a thread-safe Boolean with a waiting and notification mechanism.
+# This is globally shared. One thread can set it, another can check it.
+#  Functionality: 
+#       stop_event.wait() - the thread will sleep until another thread calls sto_event.set().
+#       stop_event.wait(timeout=5) - wait until the thead gets set or 5 secs pass.
+#
+# log_event = threading.Event()
+# stop_event = threading.Event()
+#
+# Flow:
+#       1. Create a shared stop signal
+#       2. Constrcut a thread
+#       3. Start the thread
+#       4. Let the main thread perform other work
+#       5. Signal the worker to stop
+#       6. Call join() to wait for it to exit
+#
+##################################################################################################################################################
+def target_python_func(param1, stop_event):
+    while not stop_event.is_set():
+        # Perform one unit of work.
+        # Avoid blocking indefinitely here.
+        do_work(param1)
+    # Optional cleanup before the thread exits.
+    cleanup()
+
+# 1. Create shared stop signal
+stop_event = threading.Event()
+
+# 2. Construct a thread
+# thead object that contains running function, arguments. Daemon will run in backgroud and automatically exit when main program ends.
+TargetPyFunc-ThreadObject = threading.Thread(target=Target_Python_Func, args=(param1, stop_event), daemon=True)
+
+# // Start Thread object
+TargetPyFunc-ThreadObject.start()
+
+# 4. Let the main thread perform other work
+
+# 5. Signal the work to stop.
+# This call just sets the bool value. The logic check to stop the loop and exit the function, which will exit the thread is in target_python_func
+stop_event.set()
+
+# Block the calling thread until the worker has exited.
+TargetPyFunc-ThreadObject.join()
+
+# Appraoch 2: Work assigned to thread pool
+##################################################################################################################################################
+# with (context manager that does close and cleanup). Creates ThreadPool object with int workers as param.
+with ThreadPoolExecutor(max_workers=,MAX_WORKERS) as executor:
+# futures is a collection of future objects that are returned result of submitted task to the thread worker. We can assign a token and get the returned function data by future.result().
+# It returns straight after submit but will be populated when the work completes.
+# We submit the work - function with params into the thread submit action. 
+# 
+# futures = {
+#    executor.submit(send_token, token): token
+#    for token in tokens
+#
+#creates a dictionary like:
+#    future_object_1: token_1,
+#    future_object_2: token_2,
+##################################################################################################################################################
+futures = {executor.submit(send_token, token): token for token in tokens}
+# A loop to empty the completed work units in futures. Assigned each iteration, assigned to result, then assigned into queue 'result_queue'.
+for future in as_completed(futures):
+result = future.result()
+result_quue.put(result)
+# Set bool on thread-safe flag. This is\ can be checked as a condition in the executing function.
+stop_event.set()
