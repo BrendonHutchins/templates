@@ -4,6 +4,7 @@
 set -g status-bg green
 // Set status bar foreground to black
 set -g status-fg black
+set-option -g status-position top
 ```
 
 ## tmux key bindings
