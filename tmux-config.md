@@ -1,10 +1,14 @@
-### colour
+### General notes
 ```
 // Set status bar background to lime
 set -g status-bg green
 // Set status bar foreground to black
 set -g status-fg black
 set-option -g status-position top
+// Interactive menu. x to kill window selected
+Ctrl + b w
+// Kill all windows except currently selected
+tmux kill-window -a 
 ```
 
 ## tmux key bindings
